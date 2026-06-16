@@ -51,12 +51,12 @@ public class EventoDAO {
     }
 
     // DELETE
-    public void findByIdAndDelete(long id) {
-        //1. Cerchiamo l'evento tramite ricerca id
-        Evento fromDB = this.getById();
-
-
-    }
+//    public void findByIdAndDelete(long id) {
+//        //1. Cerchiamo l'evento tramite ricerca id
+//        Evento fromDB = this.getById();
+//
+//
+//    }
 
 
 }
