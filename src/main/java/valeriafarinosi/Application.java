@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import valeriafarinosi.entities.Evento;
 import valeriafarinosi.entities.dao.EventoDAO;
+import valeriafarinosi.exceptions.NotFoundException;
 
 import java.time.LocalDate;
 
@@ -22,8 +23,18 @@ public class Application {
         Evento evento1 = new Evento("LiveAid", LocalDate.of(1985, 07, 13), "Concerto di beneficenza");
         Evento evento2 = new Evento("Cinema all'aperto", LocalDate.of(2026, 04, 21), "Princess Mononoke");
 
+//        SAVE
 //        eventoDAO.save(evento1);
 //        eventoDAO.save(evento2);
+
+//        FINDBY
+        try {
+            Evento found = eventoDAO.getById(2);
+            System.out.println(found.getTitolo());
+        } catch (NotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 

@@ -53,6 +53,10 @@ public class Evento {
         return id;
     }
 
+    public String getTitolo() {
+        return titolo;
+    }
+
     public LocalDate getData_evento() {
         return data_evento;
     }
