@@ -47,4 +47,13 @@ public class Location {
     }
 
 
+    @Override
+    public String toString() {
+        return "Location{" +
+                "idLocation=" + idLocation +
+                ", nome='" + nome + '\'' +
+                ", citta='" + citta + '\'' +
+                ", eventi=" + eventi +
+                '}';
+    }
 }

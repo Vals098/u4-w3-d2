@@ -3,6 +3,7 @@ package valeriafarinosi.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -43,6 +44,10 @@ public class Evento {
     @ManyToOne
     @JoinColumn(name = "id_location")
     private Location location;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> partecipazioni;
+
 
     //Costruttore vuoto obbigatorio per tutte le entities
     public Evento() {
