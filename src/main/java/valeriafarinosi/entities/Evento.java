@@ -39,6 +39,10 @@ public class Evento {
     @Column(name = "numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
 
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
     //Costruttore vuoto obbigatorio per tutte le entities
     public Evento() {
     }
