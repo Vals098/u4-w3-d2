@@ -11,7 +11,7 @@ public class EventoDAO {
 
     private final EntityManager entityManager;
 
-    //l'EM è l'oggetto che consente di salvare, cancellare, leggere e sincronizzarsi conil DB.
+    //l'EM è l'oggetto che consente di salvare, cancellare, leggere e sincronizzarsi con il DB.
     // questo viene creato nel main e viene poi passato come parametro del costruttore del DAO,
     //così da averlo comodamente a disposizione per ogni metodo che implementeremo.
 

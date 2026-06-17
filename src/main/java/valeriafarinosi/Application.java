@@ -29,7 +29,7 @@ public class Application {
 
 //        FINDBY
         try {
-            Evento found = eventoDAO.getById(2);
+            Evento found = eventoDAO.getById(4);
             System.out.println(found.getTitolo());
         } catch (NotFoundException e) {
             System.out.println(e.getMessage());
