@@ -3,6 +3,7 @@ package valeriafarinosi.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 //annotazione che serve a collegare questa entità ad una tabella corrispondente nel DB
@@ -17,22 +18,22 @@ import java.time.LocalDate;
 public class Evento {
 
     @Id //OBBLIGATORIO chiave primaria
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //chiede a Postgres di autogenerare l'id add ogni inserimento,
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) //chiede a Postgres di autogenerare l'id add ogni inserimento,
     //inoltre rende il campo un long type
-
+    @GeneratedValue
     @Column(name = "id_evento")
-    private long id;
+    private UUID idEvento;
 
-    @Column(name = "titolo")
+    @Column(name = "titolo", length = 50)
     private String titolo;
 
     @Column(name = "data_evento")
     private LocalDate data_evento;
 
-    @Column(name = "descrizione")
+    @Column(name = "descrizione", length = 100)
     private String descrizione;
 
-    @Column(name = "tipo_evento")
+    @Column(name = "tipo_evento", length = 50)
     @Enumerated(EnumType.STRING) //enum default = SMALLINT
     private TipoEvento tipoEvento;
 
@@ -40,7 +41,7 @@ public class Evento {
     private int numeroMassimoPartecipanti;
 
     @ManyToOne
-    @JoinColumn(name = "location_id")
+    @JoinColumn(name = "id_location")
     private Location location;
 
     //Costruttore vuoto obbigatorio per tutte le entities
@@ -53,8 +54,8 @@ public class Evento {
         this.descrizione = descrizione;
     }
 
-    public long getId() {
-        return id;
+    public UUID getIdEvento() {
+        return idEvento;
     }
 
     public String getTitolo() {
@@ -81,12 +82,13 @@ public class Evento {
     @Override
     public String toString() {
         return "Evento{" +
-                "id=" + id +
+                "idEvento=" + idEvento +
                 ", titolo='" + titolo + '\'' +
                 ", data_evento=" + data_evento +
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                ", location=" + location +
                 '}';
     }
 }

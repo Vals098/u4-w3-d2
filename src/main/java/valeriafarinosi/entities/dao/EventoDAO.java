@@ -5,6 +5,8 @@ import jakarta.persistence.EntityTransaction;
 import valeriafarinosi.entities.Evento;
 import valeriafarinosi.exceptions.NotFoundException;
 
+import java.util.UUID;
+
 public class EventoDAO {
     //Data Access Object = classe che servirá per raggruppare medoti semplici da poter usare nel main
     //in modo da rendere quest ultimo più leggibile
@@ -44,7 +46,7 @@ public class EventoDAO {
     }
 
     // GETBYID
-    public Evento getById(long id) {
+    public Evento getById(UUID id) {
         Evento fromDB = this.entityManager.find(Evento.class, id);
         if (fromDB == null) throw new NotFoundException();
         return fromDB;
