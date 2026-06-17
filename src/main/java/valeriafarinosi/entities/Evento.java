@@ -74,4 +74,15 @@ public class Evento {
     }
 
 
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", data_evento=" + data_evento +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipoEvento=" + tipoEvento +
+                ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                '}';
+    }
 }
