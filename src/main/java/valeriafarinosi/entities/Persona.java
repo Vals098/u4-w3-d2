@@ -34,6 +34,9 @@ public class Persona {
     @OneToMany(mappedBy = "persona")
     private List<Partecipazione> partecipazioni;
 
+    @OneToMany(mappedBy = "vincitore")
+    private List<GaraDiAtletica> gareDiAtletica;
+
     public Persona() {
     }
 

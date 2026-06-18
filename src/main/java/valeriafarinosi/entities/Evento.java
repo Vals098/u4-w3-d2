@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @Table(name = "eventi")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "tipo_evento")
+@DiscriminatorColumn(name = "tipologia")
 public abstract class Evento {
 
     @Id //OBBLIGATORIO chiave primaria

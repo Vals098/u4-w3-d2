@@ -1,16 +1,13 @@
 package valeriafarinosi.entities;
 
-import jakarta.persistence.*;
-
-import java.util.UUID;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "partite_di_calcio")
 public class PartitaDiCalcio extends Evento {
 
-    @Id
-    @GeneratedValue
-    private UUID id_partita;
 
     @Column(name = "squadra di casa")
     private String squadraDiCasa;
@@ -21,10 +18,10 @@ public class PartitaDiCalcio extends Evento {
     @Column(name = "squadra_vincente")
     private String squadraVincente;
 
-    @Column(name = "numero gol squadra di casa")
+    @Column(name = "numero_gol_squadra_di_casa")
     private int numeroGolCasa;
 
-    @Column(name = "numero gol squadra ospite")
+    @Column(name = "numero_gol_squadra_ospite")
     private int numeroGolOspite;
 
     protected PartitaDiCalcio() {
@@ -38,10 +35,6 @@ public class PartitaDiCalcio extends Evento {
         this.numeroGolOspite = numeroGolOspite;
     }
 
-
-    public UUID getId_partita() {
-        return id_partita;
-    }
 
     public String getSquadraDiCasa() {
         return squadraDiCasa;
@@ -67,7 +60,6 @@ public class PartitaDiCalcio extends Evento {
     @Override
     public String toString() {
         return "PartitaDiCalcio{" +
-                "id_partita=" + id_partita +
                 ", squadraDiCasa='" + squadraDiCasa + '\'' +
                 ", squadraOspite='" + squadraOspite + '\'' +
                 ", squadraVincente='" + squadraVincente + '\'' +
