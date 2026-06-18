@@ -16,11 +16,11 @@ import java.util.UUID;
 //<class>valeriafarinosi.entities.Evento</class>
 
 @Table(name = "eventi")
-public class Evento {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo_evento")
+public abstract class Evento {
 
     @Id //OBBLIGATORIO chiave primaria
-//    @GeneratedValue(strategy = GenerationType.IDENTITY) //chiede a Postgres di autogenerare l'id add ogni inserimento,
-    //inoltre rende il campo un long type
     @GeneratedValue
     @Column(name = "id_evento")
     private UUID idEvento;
@@ -50,7 +50,7 @@ public class Evento {
 
 
     //Costruttore vuoto obbigatorio per tutte le entities
-    public Evento() {
+    protected Evento() {
     }
 
     public Evento(String titolo, LocalDate data_evento, String descrizione) {
@@ -83,6 +83,13 @@ public class Evento {
         return numeroMassimoPartecipanti;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public List<Partecipazione> getPartecipazioni() {
+        return partecipazioni;
+    }
 
     @Override
     public String toString() {
@@ -94,6 +101,7 @@ public class Evento {
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
                 ", location=" + location +
+                ", partecipazioni=" + partecipazioni +
                 '}';
     }
 }
