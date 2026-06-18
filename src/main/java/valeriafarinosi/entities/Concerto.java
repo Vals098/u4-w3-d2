@@ -1,15 +1,14 @@
 package valeriafarinosi.entities;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "concerti")
 public class Concerto extends Evento {
 
     @Column(name = "genere")
+    @Enumerated(EnumType.STRING)
     private Genre genre;
 
     @Column(name = "in_streaming")

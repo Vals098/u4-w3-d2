@@ -2,9 +2,12 @@ package valeriafarinosi.entities.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+import valeriafarinosi.entities.Concerto;
 import valeriafarinosi.entities.Evento;
 import valeriafarinosi.exceptions.NotFoundException;
 
+import java.util.List;
 import java.util.UUID;
 
 public class EventoDAO {
@@ -52,13 +55,18 @@ public class EventoDAO {
         return fromDB;
     }
 
-    // DELETE
-//    public void findByIdAndDelete(long id) {
-//        //1. Cerchiamo l'evento tramite ricerca id
-//        Evento fromDB = this.getById();
-//
-//
-//    }
+    public List<Concerto> getConcertiInStreaming(boolean streaming) {
+
+        TypedQuery<Concerto> query = entityManager.createQuery(
+                "SELECT c FROM Concerto c WHERE c.inStreaming = :streaming",
+                Concerto.class
+        );
+
+        query.setParameter("streaming", streaming);
+
+        return query.getResultList();
+
+    }
 
 
 }
